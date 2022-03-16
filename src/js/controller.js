@@ -87,7 +87,6 @@ const controlAddRecipe = async function (newRecipe) {
   try {
     //Upload recipe
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
 
     //Render reipe
     recipeView.render(model.state.recipe);
@@ -101,7 +100,6 @@ const controlAddRecipe = async function (newRecipe) {
     //Change ID in the URL
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
   } catch (err) {
-    console.error(err);
     addRecipeView.renderError(err.message);
   }
 };
